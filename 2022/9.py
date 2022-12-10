@@ -75,31 +75,16 @@ head = (0,0)
 
 # 1 tail answer = 6522
 # 9 tails answer = 2717
-num_tails = 9 
+num_tails = 9
 tails = [(0,0)] * num_tails
 
 previous_tail_locs = [tails[-1]]
 
-test_strInput = """R 4
-U 4
-L 3
-D 1
-R 4
-D 1
-L 5
-R 2"""
+test_strInput = """R 4\nU 4\nL 3\nD 1\nR 4\nD 1\nL 5\nR 2\n"""
 
-test2_strInput = """R 5
-U 8
-L 8
-D 3
-R 17
-D 10
-L 25
-U 20
-"""
+test2_strInput = """R 5\nU 8\nL 8\nD 3\nR 17\nD 10\nL 25\nU 20\n"""
 
-for n, line in enumerate(test2_strInput.split('\n')[:-1]):
+for n, line in enumerate(strInput.split('\n')[:-1]):
     dHead, steps = decode_head_move(line)
     for step in range(steps):
         head = move(head, dHead)
