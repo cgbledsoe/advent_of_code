@@ -14,5 +14,5 @@ elf_cal_sum.sort()
 # 1 - 74918
 print(elf_cal_sum[-1])
 
-# 3 - 209914
+# 2 - 209914
 print(sum(elf_cal_sum[-3:]))
