@@ -13,7 +13,7 @@ monkeys = list(state.keys())
 items_inspected = [0]*len(monkeys)
 modulo_product = 1
 
-# convert string to list
+# clean up yaml and set global variables
 for monkey in monkeys:
     items = state[monkey]['Starting items']
     if type(items) == str:
@@ -36,11 +36,10 @@ def perform_monkey_business(monkey_state, monkey_index):
     for item in monkey_state['Starting items']:
         items_inspected[monkey_index] += 1
         modulo = int(monkey_state['Test']['Function'].split(' ')[-1])
-        if(rounds == 10_000):
-            old = item % modulo_product
+        old = item % modulo_product
+        if(rounds == 10_000):    
             new = eval(monkey_state['Operation'].split('=')[-1])
         else:
-            old = item
             new = math.floor(eval(monkey_state['Operation'].split('=')[-1])/3)
         if(new%modulo == 0):
             new_monkey = int(monkey_state['Test']['If true'].split(' ')[-1])
@@ -51,7 +50,7 @@ def perform_monkey_business(monkey_state, monkey_index):
     state[monkeys[monkey_index]]['Starting items'] = []
     return True
 
-rounds = 10_000
+rounds = 20
 for i in range(rounds):
     for j, monkey in enumerate(monkeys):
         perform_monkey_business(state[monkey],j)
