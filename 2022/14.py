@@ -112,10 +112,10 @@ def is_in_bounds(cave, new_sand_loc, bounds):
 sand_source = (500, 0)
 cave, bounds = draw_cave(lines)
 # part 2 draw a new cave with a floor
-# n = 150
-# floor = [(bounds[1][0]-n, bounds[0]+2),(bounds[1][1]+n, bounds[0]+2)]
-# lines.extend([floor])
-# cave, bounds = draw_cave(lines)
+n = 150
+floor = [(bounds[1][0]-n, bounds[0]+2),(bounds[1][1]+n, bounds[0]+2)]
+lines.extend([floor])
+cave, bounds = draw_cave(lines)
 # end new
 [print(''.join(x)) for x in cave]
 
